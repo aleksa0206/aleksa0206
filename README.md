@@ -1,69 +1,45 @@
-# Hi, I'm Aleksa Obradović 👋
+# Aleksa Obradović
 
-**Backend / Full-Stack Developer** focused on building secure, scalable, and maintainable backend systems with Node.js and TypeScript.
+Backend developer. I mostly write Node.js and TypeScript: REST APIs on Express, MySQL schemas with Prisma, and the authentication and access rules around them. I run my own projects in Docker on a Linux home server behind Cloudflare Tunnels.
 
-I work mostly on backend architecture, REST APIs, authentication & authorization, access management, real-time communication, audit logging, and database design — the kind of systems where security and reliability actually matter.
+[aleksao.me](https://aleksao.me)
 
-🌐 [aleksao.me](https://aleksao.me) · 💼 [LinkedIn](https://linkedin.com/in/your-linkedin-here)
+## Projects
 
----
+All of them are a TypeScript API (Express 5, Prisma, MySQL 8) plus an Angular client, built on the same layered architecture: `routes → controllers → services → repositories`. Each one runs in production on my own server.
 
-## 🛠 Tech Stack
+**StaffAway** · [staffaway.space](https://staffaway.space) · [backend](https://github.com/aleksa0206/StaffAway-Backend) · [frontend](https://github.com/aleksa0206/StaffAway-Frontend)
+Multi-tenant leave management. Employees request time off, managers and HR approve it. Role and per-record authorization (`Employee`, `Manager`, `Hr`), overlap and notice rules, leave balances, S3 attachments, audit log, API keys.
 
-**Backend** · Node.js · TypeScript · Express.js · REST APIs
-**Frontend** · Angular · TypeScript · HTML · CSS
-**Databases** · MySQL · Knex.js · Objection.js
-**Security** · JWT · RBAC · Authentication · Authorization · Access Control
-**DevOps** · Docker · Docker Compose · Linux · Git · GitHub Actions
-**Tools** · Postman · Swagger / OpenAPI · VS Code
+**Focentra** · [focentra.space](https://focentra.space) · [backend](https://github.com/aleksa0206/Focentra-Backend) · [frontend](https://github.com/aleksa0206/Focentra-Frontend)
+Study time tracking against goals: a timer, manual entries and pace status (ahead, on track, behind). Shared goals with invite links, statistics computed in the user's time zone, and integration tests for race conditions such as parallel timer starts and overlapping entries.
 
----
+**HomeWise** · [homewise.live](https://homewise.live) · [backend](https://github.com/aleksa0206/HomeWise-Backend) · [frontend](https://github.com/aleksa0206/HomeWise-Frontend)
+A household app: shared monthly budget, recurring bills, chores and shopping lists. Money is stored as `Decimal` and paying a bill records the expense and moves the due date in one transaction.
 
-## 🚀 What I Work On
+**Remly** · [remly.space](https://remly.space) · [backend](https://github.com/aleksa0206/Remly-Backend) · [frontend](https://github.com/aleksa0206/Remly-Frontend)
+Personal contacts with a meeting history, planned meetings, "keep in touch" reminders and birthdays.
 
-- Backend architecture and REST API design
-- Authentication and authorization systems
-- Role-Based Access Control (RBAC)
-- Secure access management
-- Database design and optimization
-- Real-time communication and WebSockets
-- Audit logging and activity tracking
-- Dockerized development environments
-- API documentation with Swagger / OpenAPI
+**Portfolio** · [aleksao.me](https://aleksao.me) · [backend](https://github.com/aleksa0206/Portfolio-Backend) · [frontend](https://github.com/aleksa0206/Portfolio-Frontend)
+My website, built as a terminal with a virtual file system, backed by a small CMS API with an admin dashboard.
 
----
+**Prompt-Injection-Classifier** · [repo](https://github.com/aleksa0206/Prompt-Injection-Classifier)
+ModernBERT fine-tuned to flag prompt-injection and jailbreak attempts before they reach an LLM, compared against a TF-IDF baseline.
 
-## 📌 Featured Projects
+## What the backends have in common
 
-### 🔐 Security-Focused Backend Systems
-Backend systems built around secure access management — authentication, authorization, auditing, session management, and real-time communication.
+- JWT access tokens kept in memory on the client; opaque refresh tokens stored hashed, rotated on every use and sent only as `httpOnly` cookies
+- Optional TOTP two-factor authentication, account lockout, password reset with hashed, expiring tokens
+- Rate limiting stored in the database, input validation with Zod, environment checked at startup
+- Every query scoped to the tenant or the user; guarded updates and transactions where two requests could race
+- Integration tests with Jest and Supertest against a real MySQL database, run in GitHub Actions
+- Multi-stage Docker images, Docker Compose stacks, Prometheus metrics and Pino logs
 
-`Node.js` `TypeScript` `MySQL` `REST APIs` `RBAC` `WebSockets` `Docker`
+## Tools
 
-[Repo →](https://github.com/your-username/your-repo) · [Live demo →](https://your-demo-link.com)
-
-### 🏖️ StaffAway
-Employee leave management platform for requesting, approving, and managing employee leave.
-
-- JWT authentication
-- Role-Based Access Control
-- Leave request workflow with business-rule validation
-- Conflict detection
-- MySQL database + REST API
-- Angular frontend
-
-`Node.js` `TypeScript` `MySQL` `Angular`
-
-[Repo →](https://github.com/your-username/staffaway) · [Live demo →](https://your-demo-link.com)
-
----
-
-## 🎯 Currently Learning
-
-Backend system design · Application security · Docker & containerization · Cloud infrastructure · CI/CD · Distributed systems · Scalable API architecture
-
----
-
-## 🤝 Connect
-
-[Website](https://aleksao.me) · [LinkedIn](https://linkedin.com/in/your-linkedin-here) · [Email](mailto:your-email-here)
+**Backend:** Node.js, TypeScript, Express, Prisma, Zod, REST
+**Data:** MySQL, SQL, migrations
+**Frontend:** Angular (standalone components, signals), SCSS
+**Ops:** Docker, Docker Compose, Linux, nginx, Cloudflare Tunnel, GitHub Actions, Prometheus, Grafana
+**Testing:** Jest, Supertest, Vitest
+**Also:** Python (PyTorch, Hugging Face Transformers, scikit-learn), Django
