@@ -6,7 +6,7 @@ Backend developer. I mostly write Node.js and TypeScript: REST APIs on Express, 
 
 ## Projects
 
-All of them are a TypeScript API (Express 5, Prisma, MySQL 8) plus an Angular client, built on the same layered architecture: `routes → controllers → services → repositories`. The ones with a live link run in production on my own server.
+All of them are a TypeScript API (Express 5, Prisma, MySQL 8) plus an Angular client, built on the same layered architecture: `routes → controllers → services → repositories`. Each one runs in production on my own server.
 
 **StaffAway** | [staffaway.space](https://staffaway.space) | [backend](https://github.com/aleksa0206/StaffAway-Backend) | [frontend](https://github.com/aleksa0206/StaffAway-Frontend)
 Multi-tenant leave management. Employees request time off, managers and HR approve it. Role and per-record authorization (`Employee`, `Manager`, `Hr`), overlap and notice rules, leave balances, S3 attachments, audit log, API keys.
@@ -20,7 +20,7 @@ A household app: shared monthly budget, recurring bills, chores and shopping lis
 **Remly** | [remly.space](https://remly.space) | [backend](https://github.com/aleksa0206/Remly-Backend) | [frontend](https://github.com/aleksa0206/Remly-Frontend)
 Personal contacts with a meeting history, planned meetings, "keep in touch" reminders and birthdays.
 
-**Veltris** | [backend](https://github.com/aleksa0206/Veltris-Backend) | [frontend](https://github.com/aleksa0206/Veltris-Frontend)
+**Veltris** | [veltris.stackvale.space](https://veltris.stackvale.space) | [backend](https://github.com/aleksa0206/Veltris-Backend) | [frontend](https://github.com/aleksa0206/Veltris-Frontend)
 Project management for teams: workspaces with roles and email invitations, projects with keys, a kanban board with drag and drop ordering, subtasks, comments and a full change history. Its own design system with separately designed light and dark themes.
 
 **Portfolio** | [aleksao.me](https://aleksao.me) | [backend](https://github.com/aleksa0206/Portfolio-Backend) | [frontend](https://github.com/aleksa0206/Portfolio-Frontend)
